@@ -4,11 +4,11 @@ import java.awt.event.ActionListener;
 
 public class PassportScanner extends JFrame {
     public PassportScanner() {
-        super("Scanner de passeport");
+        super("Scan passport");
 
         JPanel panel = new JPanel();
-        JLabel scanLabel = new JLabel("Veuillez scanner votre passeport.");
-        JButton scanButton = new JButton("Scanner");
+        JLabel scanLabel = new JLabel("Please scan your passport.");
+        JButton scanButton = new JButton("Scan");
 
         panel.add(scanLabel);
         panel.add(scanButton);
