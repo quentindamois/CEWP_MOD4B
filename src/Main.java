@@ -7,8 +7,11 @@ public class Main {
         JFrame frame = new JFrame("TVM Interface");
 
         JPanel panel = new JPanel();
+        panel.setLayout(new GridBagLayout());
+        GridBagConstraints constraints = new GridBagConstraints();
 
         JButton buyTicketButton = new JButton("Buy a Ticket");
+        buyTicketButton.setFont(new Font("Arial", Font.PLAIN, 40));
 
         AdminPanel adminPanel = new AdminPanel(frame, panel);
         JButton adminButton = new JButton("Access admin interface");
@@ -22,8 +25,16 @@ public class Main {
             }
         });
 
-        panel.add(buyTicketButton);
-        panel.add(adminButton);
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.insets = new Insets(200, 0, 0, 0);
+        panel.add(adminButton, constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.insets = new Insets(150, 0, 0, 0);
+        constraints.anchor = GridBagConstraints.CENTER;
+        panel.add(buyTicketButton, constraints);
 
         frame.add(panel);
         frame.setSize(800, 600);
