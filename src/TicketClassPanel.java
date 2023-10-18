@@ -40,4 +40,7 @@ public class TicketClassPanel extends JPanel {
         public JTextField getTicketClass() {
             return TicketClass;
         }
+        public JButton getNextPage() {
+            return nextPage;
+        }
 }
