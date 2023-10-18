@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Main {
+    public static double ticketPrice = 59.95;
     public static void main(String[] args) {
         JFrame frame = new JFrame("TVM Interface");
 

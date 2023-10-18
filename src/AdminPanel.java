@@ -2,17 +2,36 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AdminPanel extends JPanel {
-
     public AdminPanel(JFrame frame, JPanel lastPanel) {
         setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
 
+        JButton backButton = new JButton("Back");
+        backButton.addActionListener(e -> {
+            frame.remove(this);
+            frame.add(lastPanel);
+            frame.revalidate();
+            frame.repaint();
+        });
+
+        UpdatePricePanel updatePricePanel = new UpdatePricePanel(frame, this);
         JButton updatePricesButton = new JButton("Update prices");
         updatePricesButton.setFont(new Font("Arial", Font.PLAIN, 24));
+        updatePricesButton.addActionListener(e -> {
+            frame.remove(this);
+            frame.add(updatePricePanel);
+            frame.revalidate();
+            frame.repaint();
+        });
 
         JButton updateTrainScheduleButton = new JButton("Update train schedule");
         updateTrainScheduleButton.setFont(new Font("Arial", Font.PLAIN, 24));
 
+
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.insets = new Insets(-400, 0, 0, 720);
+        add(backButton, constraints);
 
         constraints.gridx = 0;
         constraints.gridy = 1;
@@ -24,5 +43,4 @@ public class AdminPanel extends JPanel {
         constraints.insets = new Insets(100, 0, 0, 0);
         add(updateTrainScheduleButton, constraints);
     }
-
 }
