@@ -11,7 +11,30 @@ public class Main {
         JPanel panel = new JPanel();
         Ticket ticketUser = new Ticket();
         ticketUser.setClassTicket("standart");
+        
+         AgeAndDatePanel ageAndDatePanel = new AgeAndDatePanel(frame, panel);
         JButton buyTicketButton = new JButton("Buy a Ticket");
+        buyTicketButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.remove(panel);
+                frame.add(ageAndDatePanel);
+                frame.revalidate();
+                frame.repaint();
+            }
+        });
+        
+        TicketClassPanel ticketClassPanel = new TicketClassPanel(frame, panel);
+        JButton nextPageButton = ageAndDatePanel.getNextPage();
+        nextPageButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.remove(ageAndDatePanel);
+                frame.add(ticketClassPanel);
+                frame.revalidate();
+                frame.repaint();
+            }
+        });
 
         AdminPanel adminPanel = new AdminPanel(frame, panel);
         JButton adminButton = new JButton("Access admin interface");
