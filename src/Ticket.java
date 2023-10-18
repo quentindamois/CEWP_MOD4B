@@ -25,4 +25,10 @@ public class Ticket {
     public String getTrain() {
         return this.train;
     }
+    public void setSeat(String seat) {
+        this.seat = seat;
+    }
+    public void setClassTicket(String classTicket) {
+        this.classTicket = classTicket;
+    }
 }
