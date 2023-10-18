@@ -3,7 +3,7 @@ import java.awt.*;
 public class AgeAndDatePanel extends JPanel {
     private JTextField age;
     private JTextField travelDate;
-    JButton nextPage;
+    private JButton nextPage;
     public AgeAndDatePanel(JFrame frame, JPanel lastPanel) {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -52,5 +52,11 @@ public class AgeAndDatePanel extends JPanel {
 
         public JButton getNextPage() {
             return nextPage;
+        }
+        public JTextField getAge() {
+            return age;
+        }
+        public JTextField getTravelDate() {
+            return travelDate;
         }
 }
