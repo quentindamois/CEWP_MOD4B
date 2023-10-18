@@ -21,3 +21,5 @@ out/production/CEWP_MOD4B/Ticket.class
 out/production/CEWP_MOD4B/UpdatePricePanel.class
 *.class
 out/production/CEWP_MOD4B/AdminPanel.class
+*.class
+out/production/CEWP_MOD4B/AdminPanel.class

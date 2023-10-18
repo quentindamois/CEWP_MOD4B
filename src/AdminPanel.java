@@ -24,8 +24,15 @@ public class AdminPanel extends JPanel {
             frame.repaint();
         });
 
+        UpdateTrainSchedulePanel updateTrainSchedulePanel = new UpdateTrainSchedulePanel(frame, this);
         JButton updateTrainScheduleButton = new JButton("Update train schedule");
         updateTrainScheduleButton.setFont(new Font("Arial", Font.PLAIN, 24));
+        updateTrainScheduleButton.addActionListener(e -> {
+            frame.remove(this);
+            frame.add(updateTrainSchedulePanel);
+            frame.revalidate();
+            frame.repaint();
+        });
 
 
         constraints.gridx = 0;
