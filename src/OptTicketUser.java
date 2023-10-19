@@ -91,7 +91,7 @@ public class OptTicketUser extends JPanel {
             this.add(this.seatButton[i]);
         }
          */
-        displayInTheCenter(new JLabel("Select a seat if you want."));
+        displayInTheCenter(new JLabel("Select a seat if you want. The front is at the top."));
         orderedAdding();
         displayInTheCenter(this.displaySeatSelected);
         displayInTheCenter(this.inputLuggageInformation);
