@@ -6,6 +6,8 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class Main {
+    public static double ticketPrice = 59.95;
+    public static String[][] listTickets = {{"50", "2021-01-01"},{"100", "2021-02-02"},{"150", "2021-03-03"}};
     public static void IgoMainFrame() {
         JFrame frame = new JFrame("TVM Interface");
 
@@ -17,8 +19,6 @@ public class Main {
 
         Ticket ticketUser = new Ticket();
         ticketUser.setClassTicket("standart");
-
-        String[][] listTickets = {{"50", "2021-01-01"},{"100", "2021-02-02"},{"150", "2021-03-03"}};
 
         AgeAndDatePanel ageAndDatePanel = new AgeAndDatePanel(frame, panel);
         TicketClassPanel ticketClassPanel = new TicketClassPanel(frame, panel);
