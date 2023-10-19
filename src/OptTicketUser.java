@@ -189,7 +189,7 @@ public class OptTicketUser extends JPanel {
         public void actionPerformed(ActionEvent e) {
 
             if (!seatButton[this.buttonNumber].getText().contains(seatSelected) || seatSelected.isBlank()) {
-            if (userTicket.getClassTicket() == "premier") {
+            if (userTicket.getClassTicket().equals( "premier")) {
                 if (isItTaken(premierLayout[this.buttonNumber])) {
                     seatSelected = "";
                     displaySeatSelected.setText("This seat is already taken.");
@@ -197,7 +197,7 @@ public class OptTicketUser extends JPanel {
                     seatSelected = "" + premierLayout[this.buttonNumber];
                     displaySeatSelected.setText("You selected " + seatSelected);
                 }
-            } else if (userTicket.getClassTicket() == "premium") {
+            } else if (userTicket.getClassTicket().equals("premium")) {
                 if (isItTaken(premiumLayout[this.buttonNumber])) {
                     seatSelected = "";
                     displaySeatSelected.setText("This seat is already taken.");
@@ -224,12 +224,12 @@ public class OptTicketUser extends JPanel {
                     seatButton[i].setBackground(Color.CYAN);
                 }
             }
-                if (userTicket.getClassTicket() == "premier") {
+                if (userTicket.getClassTicket().equals("premier")) {
                     if (!isItTaken(premierLayout[this.buttonNumber])) {
                     seatButton[this.buttonNumber].setBackground(Color.ORANGE);
                 }
 
-                } else if (userTicket.getClassTicket() == "premium") {
+                } else if (userTicket.getClassTicket().equals("premium")) {
                     if (!isItTaken(premiumLayout[this.buttonNumber])) {
                         seatButton[this.buttonNumber].setBackground(Color.ORANGE);
                     }
