@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static double ticketPrice = 50.0;
-    public static String[][] listTickets = {{"50", "2021-01-01"},{"100", "2021-02-02"},{"150", "2021-03-03"}};
+    public static String[][] listTickets = {{"50", "2024-01-01"},{"100", "2024-02-02"},{"150", "2024-03-03"}};
     public static void IgoMainFrame() {
         JFrame frame = new JFrame("TVM Interface");
 
