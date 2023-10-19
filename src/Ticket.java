@@ -1,16 +1,19 @@
 import java.util.Date;
 
 public class Ticket {
-    private Date travelDates;
-    private double Price;
+    private String travelDates;
+    private String Price;
     private String classTicket;
     private String boarding;
     private String seat;
     private String train;
-    public Date getTravelDates() {
+    public String getTravelDates() {
         return this.travelDates;
     }
-    public double getPrice() {
+    public void setTravelDates(String travelDates) {
+        this.travelDates = travelDates;
+    }
+    public String getPrice() {
         return this.Price;
     }
     public String getClassTicket() {
@@ -31,4 +34,5 @@ public class Ticket {
     public void setClassTicket(String classTicket) {
         this.classTicket = classTicket;
     }
+    public void setPrice(String Price) {this.Price = Price;}
 }

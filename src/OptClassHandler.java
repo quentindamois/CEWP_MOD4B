@@ -1,14 +1,15 @@
 import javax.swing.*;
 
 public class OptClassHandler {
-    public static void switchToTheOptPanel(Ticket ticketInput, JFrame frame, JPanel panel) {
-        OptTicketUser thirdJPanelOpt = new OptTicketUser(ticketInput);
+    public static void switchToTheOptPanel(Ticket ticketInput, JFrame frame) {
+        OptTicketUser thirdJPanelOpt = new OptTicketUser(ticketInput, frame);
         frame.add(thirdJPanelOpt);
         frame.setSize(800, 600);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
+        /*
         while (!thirdJPanelOpt.getToBeDeleted()) {
             System.out.println();
             if (thirdJPanelOpt.getToBeDeleted()) {
@@ -17,6 +18,6 @@ public class OptClassHandler {
                 frame.revalidate();
                 frame.repaint();
             }
-        }
+        }*/
     }
 }

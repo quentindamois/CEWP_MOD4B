@@ -37,8 +37,8 @@ public class TicketClassPanel extends JPanel {
 
         setBackground(new Color(200, 200, 200));
         }
-        public JTextField getTicketClass() {
-            return TicketClass;
+        public String getTicketClass() {
+            return TicketClass.getText();
         }
         public JButton getNextPage() {
             return nextPage;

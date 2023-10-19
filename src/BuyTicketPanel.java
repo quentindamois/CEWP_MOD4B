@@ -8,12 +8,10 @@ public class BuyTicketPanel extends JPanel {
     private ArrayList<JButton> buttons = new ArrayList<JButton>();
     private ArrayList<String> price = new ArrayList<>();
     private ArrayList<String> date = new ArrayList<>();
-    public BuyTicketPanel(JFrame frame, JPanel lastPanel, String[][] listTickets){
-
+    public BuyTicketPanel(JFrame frame, JPanel lastPanel, String[][] listTickets, Ticket ticketCreated){
         // Create a vertical box layout to hold the ticket information and buttons
         BoxLayout layout = new BoxLayout(lastPanel, BoxLayout.Y_AXIS);
         lastPanel.setLayout(layout);
-
         // Create a list of buttons to display the ticket information
         for (int i = 0; i < listTickets.length; i++) {
             String[] ticket = listTickets[i];
@@ -24,8 +22,10 @@ public class BuyTicketPanel extends JPanel {
                 public void actionPerformed(ActionEvent e) {
                     // When the button is clicked, display the ticket information
                     JOptionPane.showMessageDialog(frame, "Ticket Information:\n" +
-                            "Price: " + ticket[0] + "\n" +
+                            "Price: " + ticket[0] + " CAD\n" +
                             "Date: " + ticket[1] );
+                    ticketCreated.setTravelDates(ticket[1]);
+                    ticketCreated.setPrice(ticket[0]);
                 }
             });
             buttons.add(button);

@@ -20,7 +20,8 @@ public class PassportScanner extends JFrame {
         scanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                dispose();
+                Main.IgoMainFrame();
                 //FinalPage finalPage = new FinalPage();
                 //finalPage.setVisible(true);
             }

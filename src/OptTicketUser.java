@@ -23,11 +23,13 @@ public class OptTicketUser extends JPanel {
     private String seatSelected;
     private JButton validate;
     private JTextField lugageWeghtInput;
+    private JFrame nestFrame;
     public boolean getToBeDeleted() {
         return this.toBeDeleted;
     }
-    OptTicketUser(Ticket userTicket) {
+    OptTicketUser(Ticket userTicket, JFrame nestFrame) {
         super(new GridLayout(11,7));
+        this.nestFrame = nestFrame;
         this.seatTaken = new HashSet<>();
         this.toBeDeleted = false;
         this.seatTaken.add("a3");
@@ -288,7 +290,11 @@ public class OptTicketUser extends JPanel {
             }
             System.out.println(errorMessage);
             displaySeatSelected.setText(errorMessage);
-            toBeDeleted = seatQuestionAnswered && luggageWeightAnswered;
+            if ( seatQuestionAnswered && luggageWeightAnswered) {
+                nestFrame.dispose();
+                BuyTicket ticketFrame = new BuyTicket(Double.parseDouble(userTicket.getPrice()));
+                ticketFrame.setVisible(true);
+            }
             System.out.println(toBeDeleted);
         }
     }

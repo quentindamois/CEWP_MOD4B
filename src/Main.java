@@ -3,9 +3,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void IgoMainFrame() {
         JFrame frame = new JFrame("TVM Interface");
 
         JPanel panel = new JPanel();
@@ -17,11 +18,11 @@ public class Main {
         Ticket ticketUser = new Ticket();
         ticketUser.setClassTicket("standart");
 
-        String[][] listTickets = {{"50 CAD", "2021-01-01"},{"100 CAD", "2021-02-02"},{"150 CAD", "2021-03-03"}};
-        
+        String[][] listTickets = {{"50", "2021-01-01"},{"100", "2021-02-02"},{"150", "2021-03-03"}};
+
         AgeAndDatePanel ageAndDatePanel = new AgeAndDatePanel(frame, panel);
         TicketClassPanel ticketClassPanel = new TicketClassPanel(frame, panel);
-        BuyTicketPanel buyTicketPanel = new BuyTicketPanel(frame, panel, listTickets);
+        BuyTicketPanel buyTicketPanel = new BuyTicketPanel(frame, panel, listTickets, ticketUser);
         AdminPanel adminPanel = new AdminPanel(frame, panel);
 
         JButton buyTicketButton = new JButton("Buy a Ticket");
@@ -29,7 +30,7 @@ public class Main {
         JButton audioHelperButton = new JButton("Activate audio helper");
         JButton nextPageButton1 = ageAndDatePanel.getNextPage();
         JButton nextPageButton2 = ticketClassPanel.getNextPage();
-
+        ArrayList<JButton> nextPageButtons3 = buyTicketPanel.getButtons();
         buyTicketButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -39,7 +40,7 @@ public class Main {
                 frame.repaint();
             }
         });
-        
+
         nextPageButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,20 +51,33 @@ public class Main {
             }
         });
 
-         nextPageButton2.addActionListener(new ActionListener() {
+        nextPageButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                ticketUser.setClassTicket(ticketClassPanel.getTicketClass());
                 frame.remove(ticketClassPanel);
                 frame.add(buyTicketPanel);
                 frame.revalidate();
                 frame.repaint();
             }
         });
-
+        for (JButton b: nextPageButtons3
+        ) {
+            b.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    frame.remove(buyTicketPanel);
+                    OptClassHandler.switchToTheOptPanel(ticketUser, frame);
+                    frame.revalidate();
+                    frame.repaint();
+                }
+            });
+        }
         adminButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.remove(panel);
+
                 frame.add(adminPanel);
                 frame.revalidate();
                 frame.repaint();
@@ -82,5 +96,8 @@ public class Main {
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+    }
+    public static void main(String[] args) {
+        IgoMainFrame();
     }
 }
