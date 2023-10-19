@@ -25,7 +25,7 @@ public class AdminPanel extends JPanel {
         });
 
         UpdateTrainSchedulePanel updateTrainSchedulePanel = new UpdateTrainSchedulePanel(frame, this);
-        JButton updateTrainScheduleButton = new JButton("Update train schedule");
+        JButton updateTrainScheduleButton = new JButton("Update trains");
         updateTrainScheduleButton.setFont(new Font("Arial", Font.PLAIN, 24));
         updateTrainScheduleButton.addActionListener(e -> {
             frame.remove(this);
