@@ -8,7 +8,7 @@ public class TicketClassPanel extends JPanel {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
 
-        JLabel labelTicketClass = new JLabel("Enter ticket class (premier, premimum or standart) : ");
+        JLabel labelTicketClass = new JLabel("Enter ticket class (premier, premium or standart) : ");
         TicketClass = new JTextField(20);
         nextPage = new JButton("Validate");
 
