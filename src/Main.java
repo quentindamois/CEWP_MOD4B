@@ -42,6 +42,7 @@ public class Main {
         JPanel home = panel;
 
         ArrayList<JButton> nextPageButtons3 = buyTicketPanel.getButtons();
+
         buyTicketButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -116,9 +117,9 @@ public class Main {
                     }           
                 };
             });
-        for (JButton b: nextPageButtons3
+        for (JButton button: nextPageButtons3
         ) {
-            b.addActionListener(new ActionListener() {
+            button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     frame.remove(buyTicketPanel);
