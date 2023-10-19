@@ -33,13 +33,12 @@ public class Main {
         JButton returnHome = new JButton("Home");
 
         middlePanel.add(buyTicketButton);
+        middlePanel.setLayout(new GridLayout(2, 1));
+        middlePanel.add(buyTicketButton);
         middlePanel.add(adminButton);
 
         panel.add(middlePanel, BorderLayout.CENTER);
-
-        audioHelperButton.setPreferredSize(new Dimension(100, 50));
         panel.add(audioHelperButton, BorderLayout.SOUTH);
-
         JPanel home = panel;
 
         ArrayList<JButton> nextPageButtons3 = buyTicketPanel.getButtons();
@@ -57,13 +56,34 @@ public class Main {
         nextPageButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.remove(ageAndDatePanel);
-                frame.add(ticketClassPanel);
-                frame.add(returnHome,BorderLayout.SOUTH);
-                frame.revalidate();
-                frame.repaint();
-            }
-        });
+                String errorMessage = "";
+                JTextField age = ageAndDatePanel.getAge();
+                try {
+                    if (age.getText().isBlank()) {
+                        errorMessage = "Enter an age please.";
+                        JOptionPane.showMessageDialog(frame,errorMessage);
+                    }
+                    else{
+                    int ageInt = Integer.parseInt(age.getText());
+                    if (ageInt <= 0) {
+                        errorMessage = "You entered a negative age.";
+                        JOptionPane.showMessageDialog(frame,errorMessage);
+                    } 
+                    else
+                    {
+                        frame.remove(ageAndDatePanel);
+                        frame.add(ticketClassPanel);
+                        frame.add(returnHome,BorderLayout.SOUTH);
+                        frame.revalidate();
+                        frame.repaint();
+                    }
+                }
+                } catch (NumberFormatException expetionNumberCustomer) {
+                    errorMessage += errorMessage.length() == 0 ? "You didn't put a number inside of the input." : "\nYou didn't put a number inside of the age input.";
+                    JOptionPane.showMessageDialog(frame,errorMessage);
+                    }           
+                };
+            });
 
         nextPageButton2.addActionListener(new ActionListener() {
             @Override
