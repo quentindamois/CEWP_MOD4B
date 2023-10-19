@@ -44,7 +44,7 @@ public class OptTicketUser extends JPanel {
             this.alleyInvisibleButton[i] = new JButton("se");
             this.alleyInvisibleButton[i].setVisible(false);
         }
-        if (this.userTicket.getClassTicket() == "premier") {
+        if (this.userTicket.getClassTicket().equals("premier")) {
             this.seatButton = new JButton[this.premierLayout.length];
             for (int i = 0; i < this.premierLayout.length; i++) {
                 this.seatButton[i] = new JButton(premierLayout[i]);
@@ -55,7 +55,7 @@ public class OptTicketUser extends JPanel {
                     this.seatButton[i].setBackground(Color.CYAN);
                 }
             }
-        } else if (this.userTicket.getClassTicket() == "premium") {
+        } else if (this.userTicket.getClassTicket().equals("premium")) {
             this.seatButton = new JButton[this.premiumLayout.length];
             for (int i = 0; i < this.premiumLayout.length; i++) {
                 this.seatButton[i] = new JButton(premiumLayout[i]);
@@ -120,7 +120,7 @@ public class OptTicketUser extends JPanel {
         }
     }
     private void orderedAdding() {
-        if (this.userTicket.getClassTicket() == "premier") {
+        if (this.userTicket.getClassTicket().equals( "premier")) {
             JButton tempInvisibleJButton;
             for (int i = 0; i < 5; i++) {
                 tempInvisibleJButton = new JButton("se");
@@ -143,7 +143,7 @@ public class OptTicketUser extends JPanel {
                 tempInvisibleJButton.setVisible(false);
                 this.add(tempInvisibleJButton);
             }
-        } else if (this.userTicket.getClassTicket() == "premium") {
+        } else if (this.userTicket.getClassTicket().equals( "premium")) {
             JButton tempInvisibleJButton;
             for (int i = 0; i < 5; i++) {
                 tempInvisibleJButton = new JButton("se");

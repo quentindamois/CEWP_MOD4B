@@ -18,7 +18,6 @@ public class Main {
         middlePanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         
         Ticket ticketUser = new Ticket();
-        ticketUser.setClassTicket("standart");
 
         AgeAndDatePanel ageAndDatePanel = new AgeAndDatePanel(frame, panel);
         TicketClassPanel ticketClassPanel = new TicketClassPanel(frame, panel);
@@ -91,6 +90,7 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 String errorMessage = "";
                 String ticketClass = ticketClassPanel.getTicketClass();
+
                 try {
                     if (ticketClass.isBlank()) {
                         errorMessage = "Enter an ticket class please.";
@@ -100,6 +100,7 @@ public class Main {
                         
                     if (ticketClass.equals("premier") || ticketClass.equals("standart") || ticketClass.equals("premium") ) {
                         frame.remove(ticketClassPanel);
+                        ticketUser.setClassTicket(ticketClass);
                         frame.add(buyTicketPanel);
                         frame.add(returnHome,BorderLayout.SOUTH);
                         frame.revalidate();
