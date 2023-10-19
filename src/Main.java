@@ -88,14 +88,34 @@ public class Main {
         nextPageButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ticketUser.setClassTicket(ticketClassPanel.getTicketClass());
-                frame.remove(ticketClassPanel);
-                frame.add(buyTicketPanel);
-                frame.add(returnHome,BorderLayout.SOUTH);
-                frame.revalidate();
-                frame.repaint();
-            }
-        });
+                String errorMessage = "";
+                String ticketClass = ticketClassPanel.getTicketClass();
+                try {
+                    if (ticketClass.isBlank()) {
+                        errorMessage = "Enter an ticket class please.";
+                        JOptionPane.showMessageDialog(frame,errorMessage);
+                    }
+                    else{
+                        
+                    if (ticketClass.equals("premier") || ticketClass.equals("standart") || ticketClass.equals("premium") ) {
+                        frame.remove(ticketClassPanel);
+                        frame.add(buyTicketPanel);
+                        frame.add(returnHome,BorderLayout.SOUTH);
+                        frame.revalidate();
+                        frame.repaint();
+                    } 
+                    else
+                    {
+                        errorMessage = "You entered wrong ticket class, choose between premier, premium or standart";
+                        JOptionPane.showMessageDialog(frame,errorMessage);
+                    }
+                }
+                } catch (NumberFormatException expetionNumberCustomer) {
+                    errorMessage += errorMessage.length() == 0 ? "You didn't put a number inside of the input." : "\nYou didn't put a number inside of the age input.";
+                    JOptionPane.showMessageDialog(frame,errorMessage);
+                    }           
+                };
+            });
         for (JButton b: nextPageButtons3
         ) {
             b.addActionListener(new ActionListener() {
