@@ -133,7 +133,6 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.remove(panel);
-                frame.add(returnHome,BorderLayout.SOUTH);
                 frame.add(adminPanel);
                 frame.revalidate();
                 frame.repaint();
